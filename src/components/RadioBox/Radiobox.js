@@ -1,4 +1,5 @@
 const Radiobox = ({ name, selectedItem, onChange }) => {
+  const checked = name === selectedItem;
   return (
     <div>
       <input
@@ -7,6 +8,7 @@ const Radiobox = ({ name, selectedItem, onChange }) => {
         id={name}
         value={name}
         onChange={onChange}
+        checked={checked}
       />
       <label htmlFor={name}>{name}</label>
     </div>
