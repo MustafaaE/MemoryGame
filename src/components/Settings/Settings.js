@@ -2,15 +2,24 @@ import { useState } from "react";
 import { DIFFICULTY, CARDS_COUNT, DEFAULT_SEARCH } from "../../Constants";
 
 import Radiobox from "../RadioBox/Radiobox";
+import CardCounter from "../CardCounter/CardCounter";
 
 const getRandomSearch = () => Math.round(Math.random() * (5 - 1) + 1);
 
-const Settings = () => {
+const Settings = ({ startGame }) => {
   const [difficulty, setDifficulty] = useState(DIFFICULTY[1]);
   const [cardsCount, setCardsCount] = useState(CARDS_COUNT);
   const [searchTerm, setSearchTerm] = useState(
     DEFAULT_SEARCH[getRandomSearch()]
   );
+
+  const startGameButton = () => {
+    startGame({ difficulty, cardsCount, searchTerm });
+  };
+
+  const onChangeHandler = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <div className="settings">
@@ -28,6 +37,11 @@ const Settings = () => {
         ))}
       </div>
 
+      <h4>Card amount</h4>
+      <div className="amount">
+        <CardCounter cardsCount={cardsCount} onClick={setCardsCount} />
+      </div>
+
       <div className="search-field">
         <label htmlFor="search">Type theme </label>
         <input
@@ -35,20 +49,18 @@ const Settings = () => {
           id="search"
           name="search"
           defaultValue={searchTerm}
+          onChange={onChangeHandler}
         />
       </div>
 
       <div className="username-field">
         <label htmlFor="username">Username </label>
-        <input
-          type="username"
-          id="username"
-          name="username"
-          placeholder="username"
-        />
+        <input type="username" id="username" name="username" />
       </div>
 
-      <button className="start-button"> Start</button>
+      <button className="start-button" onClick={startGameButton}>
+        Start
+      </button>
     </div>
   );
 };
