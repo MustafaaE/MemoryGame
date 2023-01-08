@@ -2,18 +2,18 @@ import { useEffect, useRef, useState } from "react";
 
 const getRandomPage = () => Math.round(Math.random() * (5 - 1) + 1);
 
-const useFetchImages = () => {
-  const dataFetchedRef = useRef(false);
+const useFetchImages = (gameSettings) => {
+  // const dataFetchedRef = useRef(false);
   const [images, setImages] = useState([]);
 
   const createURL = () => {
     let url = new URL("https://api.pexels.com/v1/search");
 
     url.search = new URLSearchParams({
-      query: "nature",
+      query: gameSettings.searchTerm,
       orientation: "square",
       size: "small",
-      per_page: 1,
+      per_page: gameSettings.cardsCount / 2,
       page: getRandomPage(),
     });
     return url;
@@ -31,10 +31,11 @@ const useFetchImages = () => {
   };
 
   useEffect(() => {
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
+    // if (dataFetchedRef.current) return;
+    // dataFetchedRef.current = true;
+    if (!gameSettings) return;
     fetchPics();
-  }, []);
+  }, [gameSettings]);
 
   return images;
 };
