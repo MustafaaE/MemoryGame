@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useBoardLogic = (images) => {
+  const [cards, setCards] = useState([]);
+
   const prepareCards = () => {
     const obj = getImageObject(images);
     const shuffledObj = shuffleCards(obj);
-    console.log(shuffledObj);
+    setCards(shuffledObj);
   };
 
   const getImageObject = (image) => {
@@ -17,7 +19,9 @@ const useBoardLogic = (images) => {
   };
 
   const shuffleCards = (obj) => {
-    const shuffledCards = [...obj, ...obj].sort(() => Math.random() - 0.5);
+    const shuffledCards = [...obj, ...obj]
+      .map((img, i) => ({ ...img, uniqueId: i }))
+      .sort(() => Math.random() - 0.5);
     return shuffledCards;
   };
 
@@ -26,6 +30,8 @@ const useBoardLogic = (images) => {
       prepareCards();
     }
   }, [images]);
+
+  return cards;
 };
 
 export default useBoardLogic;
