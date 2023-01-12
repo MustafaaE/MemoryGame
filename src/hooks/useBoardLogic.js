@@ -3,7 +3,8 @@ import { useEffect } from "react";
 const useBoardLogic = (images) => {
   const prepareCards = () => {
     const obj = getImageObject(images);
-    console.log(obj);
+    const shuffledObj = shuffleCards(obj);
+    console.log(shuffledObj);
   };
 
   const getImageObject = (image) => {
@@ -13,6 +14,11 @@ const useBoardLogic = (images) => {
       isShown: false,
       isFound: false,
     }));
+  };
+
+  const shuffleCards = (obj) => {
+    const shuffledCards = [...obj, ...obj].sort(() => Math.random() - 0.5);
+    return shuffledCards;
   };
 
   useEffect(() => {
