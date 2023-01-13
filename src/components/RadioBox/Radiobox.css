@@ -1,0 +1,11 @@
+.radiobox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 5px;
+    border-radius: 10px;
+    background: rgb(204, 198, 200);
+    margin:0 30px;
+    font-weight: 500;
+}
+

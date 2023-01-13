@@ -1,0 +1,21 @@
+.amount {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px 0px;
+    margin: 5px 0;
+    border-radius: 10px;
+    background: rgb(204, 198, 200);
+    margin:0 30px;
+}
+
+.minus, .plus {
+    border-radius: 50%;
+    border:1px solid white;
+    width: 25px;
+    height:25px;
+}
+
+.number{
+    font-weight: 700;
+}

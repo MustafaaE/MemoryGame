@@ -1,3 +1,4 @@
+import style from "./Cardcounter.css";
 const CHANGE = 2;
 const CardCounter = ({ cardsCount, onClick }) => {
   const decreaseCard = (e) => {
@@ -17,11 +18,11 @@ const CardCounter = ({ cardsCount, onClick }) => {
   };
 
   return (
-    <div>
+    <div className="amount">
       <button className="minus" onClick={decreaseCard}>
         -
       </button>
-      <span>{cardsCount}</span>
+      <span className="number">{cardsCount}</span>
       <button className="plus" onClick={increaseCard}>
         +
       </button>

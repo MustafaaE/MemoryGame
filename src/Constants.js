@@ -1,10 +1,10 @@
-export const DIFFICULTY = ["easy", "medium", "hard"];
+export const DIFFICULTY = ["Easy", "Medium", "Hard"];
 export const CARDS_COUNT = 8;
 export const DEFAULT_SEARCH = [
-  "cars",
-  "books",
-  "train",
-  "people",
-  "animals",
-  "nature",
+  "Cars",
+  "Books",
+  "Train",
+  "People",
+  "Animals",
+  "Nature",
 ];

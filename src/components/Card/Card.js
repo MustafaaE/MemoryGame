@@ -1,4 +1,4 @@
-const Card = () => {
+const Card = ({ card }) => {
   return <div></div>;
 };
 

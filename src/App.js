@@ -17,7 +17,7 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Matching Game</h1>
+      <h1 className="app-header">Matching Game</h1>
       {!gameOptions ? (
         <Settings startGame={startGame} />
       ) : (

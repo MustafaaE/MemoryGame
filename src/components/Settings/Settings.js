@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DIFFICULTY, CARDS_COUNT, DEFAULT_SEARCH } from "../../Constants";
+import styles from "./Settings.css";
 
 import Radiobox from "../RadioBox/Radiobox";
 import CardCounter from "../CardCounter/CardCounter";
@@ -23,9 +24,9 @@ const Settings = ({ startGame }) => {
 
   return (
     <div className="settings">
-      <h2>settings</h2>
+      <h2 className="setting-header">Settings</h2>
 
-      <h4>difficulty:</h4>
+      <h4 className="difficulty-header">Difficulty:</h4>
       <div className="radiobox">
         {DIFFICULTY.map((item) => (
           <Radiobox
@@ -37,14 +38,13 @@ const Settings = ({ startGame }) => {
         ))}
       </div>
 
-      <h4>Card amount</h4>
-      <div className="amount">
-        <CardCounter cardsCount={cardsCount} onClick={setCardsCount} />
-      </div>
+      <h4 className="amount-header">Card amount</h4>
+      <CardCounter cardsCount={cardsCount} onClick={setCardsCount} />
 
+      <h4 className="search-header">Category</h4>
       <div className="search-field">
-        <label htmlFor="search">Type theme </label>
         <input
+          className="search-input"
           type="search"
           id="search"
           name="search"
@@ -53,10 +53,10 @@ const Settings = ({ startGame }) => {
         />
       </div>
 
-      <div className="username-field">
+      {/* <div className="username-field">
         <label htmlFor="username">Username </label>
         <input type="username" id="username" name="username" />
-      </div>
+      </div> */}
 
       <button className="start-button" onClick={startGameButton}>
         Start
