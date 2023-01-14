@@ -1,4 +1,4 @@
-import style from "./Radiobox.css";
+import styles from "./Radiobox.css";
 
 const Radiobox = ({ name, selectedItem, onChange }) => {
   const checked = name === selectedItem;

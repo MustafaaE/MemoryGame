@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const getRandomPage = () => Math.round(Math.random() * (5 - 1) + 1);
+const getRandomPage = () => Math.round(Math.random() * (3 - 1) + 1);
 
 const useFetchImages = (gameSettings) => {
   // const dataFetchedRef = useRef(false);
@@ -12,7 +12,7 @@ const useFetchImages = (gameSettings) => {
     url.search = new URLSearchParams({
       query: gameSettings.searchTerm,
       orientation: "square",
-      size: "small",
+      size: "medium",
       per_page: gameSettings.cardsCount / 2,
       page: getRandomPage(),
     });

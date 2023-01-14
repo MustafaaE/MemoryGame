@@ -4,12 +4,14 @@ import useFetchImages from "../../hooks/useFetchImages";
 import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
 
+import styles from "./Playfield.css";
+
 const PlayField = ({ gameOptions }) => {
   const [loading, setLoading] = useState(true);
   const images = useFetchImages(gameOptions);
 
-  const cards = useBoardLogic(images);
-  console.log(cards);
+  const { cards, onClickedCard } = useBoardLogic(images);
+  //   console.log(cards);
 
   useEffect(() => {
     if (images.length > 0) setLoading(false);
@@ -17,10 +19,18 @@ const PlayField = ({ gameOptions }) => {
 
   return (
     <div>
-      {!loading ? (
+      {loading ? (
         <Loading />
       ) : (
-        cards.map((card) => <Card card={card} key={card.uniqueId} />)
+        <div className="play-field">
+          {cards.map((card) => (
+            <Card
+              card={card}
+              key={card.uniqueId}
+              onClickedCard={onClickedCard}
+            />
+          ))}
+        </div>
       )}
     </div>
   );

@@ -1,4 +1,4 @@
-export const DIFFICULTY = ["Easy", "Medium", "Hard"];
+export const DIFFICULTY = ["Easy", "Medium", "Hard", "Hell"];
 export const CARDS_COUNT = 8;
 export const DEFAULT_SEARCH = [
   "Cars",

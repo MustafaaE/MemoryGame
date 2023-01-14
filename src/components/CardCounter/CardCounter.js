@@ -1,4 +1,5 @@
-import style from "./Cardcounter.css";
+import styles from "./Cardcounter.css";
+
 const CHANGE = 2;
 const CardCounter = ({ cardsCount, onClick }) => {
   const decreaseCard = (e) => {

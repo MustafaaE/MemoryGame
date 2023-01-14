@@ -12,7 +12,7 @@ const useBoardLogic = (images) => {
   const getImageObject = (image) => {
     return image.map((img, i) => ({
       id: i,
-      url: img.src.small,
+      url: img.src.medium,
       isShown: false,
       isFound: false,
     }));
@@ -31,7 +31,22 @@ const useBoardLogic = (images) => {
     }
   }, [images]);
 
-  return cards;
+  const onClickedCard = (clickedUniqueId) => {
+    flipCard(clickedUniqueId);
+  };
+
+  const flipCard = (clickedUniqueId) => {
+    console.log({ clickedUniqueId });
+    const flippedCards = cards.map((card) => {
+      if (card.uniqueId === clickedUniqueId) {
+        card.isShown = true;
+      }
+      return card;
+    });
+
+    setCards(flippedCards);
+  };
+  return { cards, onClickedCard };
 };
 
 export default useBoardLogic;

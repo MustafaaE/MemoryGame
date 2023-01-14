@@ -7,7 +7,8 @@
 
 .setting-header {
     padding: 5px 5px;
-    color:rgb(247, 248, 248)
+    color:rgb(247, 248, 248);
+    text-align: center;
 }
 
 .difficulty-header ,.amount-header, .search-header{
@@ -23,6 +24,12 @@
     border-radius: 10px;
     background: rgb(204, 198, 200);
     margin:0 30px;
+    text-align: center;
+}
+
+.game-starter {
+    display: flex;
+    justify-content: center;
 }
 .start-button {
     margin: 20px 0;
@@ -30,6 +37,7 @@
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
+    
 }
 
 .search-input{

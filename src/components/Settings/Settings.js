@@ -57,10 +57,11 @@ const Settings = ({ startGame }) => {
         <label htmlFor="username">Username </label>
         <input type="username" id="username" name="username" />
       </div> */}
-
-      <button className="start-button" onClick={startGameButton}>
-        Start
-      </button>
+      <div className="game-starter">
+        <button className="start-button" onClick={startGameButton}>
+          Start
+        </button>
+      </div>
     </div>
   );
 };
