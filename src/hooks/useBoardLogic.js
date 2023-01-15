@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const useBoardLogic = (images) => {
   const [cards, setCards] = useState([]);
+  const [visibleCards, setVisibleCards] = useState([]);
 
   const prepareCards = () => {
     const obj = getImageObject(images);

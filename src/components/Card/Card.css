@@ -59,9 +59,7 @@ img {
 }
 
 .card .back{
-    transform: rotateY(90deg);
-
-   
+    transform: rotateY(90deg);   
 }
 
 .card-flipped .back {
