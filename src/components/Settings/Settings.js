@@ -4,7 +4,7 @@ import "./Settings.css";
 
 import Radiobox from "../RadioBox/Radiobox";
 import CardCounter from "../CardCounter/CardCounter";
-import Searchfield from "../SearchField/SearchField";
+import SearchField from "../SearchField/SearchField";
 
 const getRandomSearch = () => Math.round(Math.random() * (5 - 1) + 1);
 
@@ -19,8 +19,8 @@ const Settings = ({ startGame }) => {
     startGame({ difficulty, cardsCount, searchTerm });
   };
 
-  const onChangeHandler = (searchTerm) => {
-    setSearchTerm(searchTerm);
+  const onChangeHandler = (e) => {
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -28,7 +28,16 @@ const Settings = ({ startGame }) => {
       <h2 className="setting-header">Settings</h2>
 
       <h4 className="search-header">Category</h4>
-      <Searchfield searchTerm={searchTerm} onChange={onChangeHandler} />
+      <div className="search-field">
+        <input
+          className="search-input"
+          type="search"
+          id="search"
+          name="search"
+          defaultValue={searchTerm}
+          onChange={onChangeHandler}
+        />
+      </div>
 
       <h4 className="amount-header">Card amount</h4>
       <CardCounter cardsCount={cardsCount} onClick={setCardsCount} />

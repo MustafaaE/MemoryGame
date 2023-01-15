@@ -1,6 +1,6 @@
 import "./Searchfield.css";
 
-const Searchfield = ({ searchTerm, onChangeHandler }) => {
+const SearchField = ({ searchTerm, onChangeHandler }) => {
   return (
     <div className="search-field">
       <input
@@ -15,4 +15,4 @@ const Searchfield = ({ searchTerm, onChangeHandler }) => {
   );
 };
 
-export default Searchfield;
+export default SearchField;
