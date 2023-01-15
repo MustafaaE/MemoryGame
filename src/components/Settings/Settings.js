@@ -4,7 +4,7 @@ import "./Settings.css";
 
 import Radiobox from "../RadioBox/Radiobox";
 import CardCounter from "../CardCounter/CardCounter";
-import SearchField from "../SearchField/SearchField";
+// import SearchField from "../SearchField/SearchField";
 
 const getRandomSearch = () => Math.round(Math.random() * (5 - 1) + 1);
 
