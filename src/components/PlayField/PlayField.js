@@ -10,7 +10,10 @@ const PlayField = ({ gameOptions }) => {
   const [loading, setLoading] = useState(true);
   const images = useFetchImages(gameOptions);
 
-  const { cards, onClickedCard } = useBoardLogic(images);
+  const { cards, onClickedCard } = useBoardLogic(
+    images,
+    gameOptions.difficulty
+  );
   //   console.log(cards);
 
   useEffect(() => {

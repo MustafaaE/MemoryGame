@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const getRandomPage = () => Math.round(Math.random() * (3 - 1) + 1);
+const getRandomPage = () => Math.round(Math.random() * (2 - 1) + 1);
 
 const useFetchImages = (gameSettings) => {
   // const dataFetchedRef = useRef(false);
