@@ -3,14 +3,15 @@ import useBoardLogic from "../../hooks/useBoardLogic";
 import useFetchImages from "../../hooks/useFetchImages";
 import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
+import Winner from "../Winner/Winner";
 
 import "./Playfield.css";
 
-const PlayField = ({ gameOptions }) => {
+const PlayField = ({ gameOptions, startOver }) => {
   const [loading, setLoading] = useState(true);
   const images = useFetchImages(gameOptions);
 
-  const { cards, onClickedCard } = useBoardLogic(
+  const { cards, onClickedCard, win } = useBoardLogic(
     images,
     gameOptions.difficulty
   );
@@ -21,6 +22,7 @@ const PlayField = ({ gameOptions }) => {
 
   return (
     <div>
+      {win && <Winner startOver={startOver} />}
       {loading ? (
         <Loading />
       ) : (

@@ -1,0 +1,22 @@
+.winner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.celebrate{
+    color: white;
+    margin: 0;
+}
+
+.play-again{
+    border-radius: 5px;  
+}
+.play-again span {
+    font-weight: 800;
+}
+
+.play-again :hover{
+    cursor: pointer;
+}

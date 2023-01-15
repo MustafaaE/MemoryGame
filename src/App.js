@@ -9,18 +9,22 @@ function App() {
     setGameOptions(options);
   };
 
-  const refreshPage = () => {
-    window.location.reload(false);
+  const refreshGame = () => {
+    setGameOptions(null);
+  };
+
+  const startOver = () => {
+    refreshGame();
   };
   return (
     <div className="App">
-      <h1 className="app-header" onClick={refreshPage}>
+      <h1 className="app-header" onClick={refreshGame}>
         Match 'em
       </h1>
       {!gameOptions ? (
         <Settings startGame={startGame} />
       ) : (
-        <PlayField gameOptions={gameOptions} />
+        <PlayField gameOptions={gameOptions} startOver={startOver} />
       )}
     </div>
   );

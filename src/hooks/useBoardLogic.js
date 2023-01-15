@@ -6,9 +6,12 @@ const DIFFICULTY = {
   Hard: 500,
   Hell: 150,
 };
+
 const useBoardLogic = (images, difficulty) => {
   const [cards, setCards] = useState([]);
   const [visibleCards, setVisibleCards] = useState([]);
+  const [score, setScore] = useState(0);
+  const [win, setWin] = useState(false);
 
   const prepareCards = () => {
     const obj = getImageObject(images);
@@ -45,7 +48,6 @@ const useBoardLogic = (images, difficulty) => {
   };
 
   const flipCard = (clickedUniqueId) => {
-    console.log({ clickedUniqueId });
     const flippedCards = cards.map((card) => {
       if (card.uniqueId === clickedUniqueId) {
         card.isShown = true;
@@ -57,6 +59,10 @@ const useBoardLogic = (images, difficulty) => {
     });
 
     setCards(flippedCards);
+  };
+
+  const updateScore = () => {
+    setScore((oldScore) => oldScore + 1);
   };
 
   const checkIfMatch = () => {
@@ -75,6 +81,9 @@ const useBoardLogic = (images, difficulty) => {
     setTimeout(() => {
       setCards(updatedCards);
       setVisibleCards([]);
+      if (matched) {
+        updateScore();
+      }
     }, DIFFICULTY[difficulty]);
   };
 
@@ -84,7 +93,13 @@ const useBoardLogic = (images, difficulty) => {
     } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visibleCards]);
 
-  return { cards, onClickedCard };
+  useEffect(() => {
+    if (images.length && score === images.length) {
+      setWin(true);
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [score]);
+
+  return { cards, onClickedCard, win };
 };
 
 export default useBoardLogic;
