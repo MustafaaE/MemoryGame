@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const getRandomPage = () => Math.round(Math.random() * (2 - 1) + 1);
 
 const useFetchImages = (gameSettings) => {
-  // const dataFetchedRef = useRef(false);
   const [images, setImages] = useState([]);
 
   const createURL = () => {
@@ -21,7 +20,6 @@ const useFetchImages = (gameSettings) => {
 
   const fetchPics = async () => {
     await fetch(createURL(), {
-      //   mode: "cors",
       headers: {
         Authorization: process.env.REACT_APP_AUTH_KEY,
       },
@@ -31,10 +29,9 @@ const useFetchImages = (gameSettings) => {
   };
 
   useEffect(() => {
-    // if (dataFetchedRef.current) return;
-    // dataFetchedRef.current = true;
     if (!gameSettings) return;
     fetchPics();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameSettings]);
 
   return images;

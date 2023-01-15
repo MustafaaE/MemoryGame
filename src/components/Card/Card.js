@@ -1,8 +1,6 @@
-import styles from "./Card.css";
+import "./Card.css";
 
 const Card = ({ card, onClickedCard }) => {
-  //   console.log(card);
-
   const onClick = () => {
     if (card.isShown || card.isFound) return;
     onClickedCard(card.uniqueId);

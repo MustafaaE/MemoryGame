@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DIFFICULTY, CARDS_COUNT, DEFAULT_SEARCH } from "../../Constants";
-import styles from "./Settings.css";
+import "./Settings.css";
 
 import Radiobox from "../RadioBox/Radiobox";
 import CardCounter from "../CardCounter/CardCounter";
@@ -26,21 +26,6 @@ const Settings = ({ startGame }) => {
     <div className="settings">
       <h2 className="setting-header">Settings</h2>
 
-      <h4 className="difficulty-header">Difficulty:</h4>
-      <div className="radiobox">
-        {DIFFICULTY.map((item) => (
-          <Radiobox
-            key={item}
-            name={item}
-            selectedItem={difficulty}
-            onChange={(e) => setDifficulty(e.target.value)}
-          />
-        ))}
-      </div>
-
-      <h4 className="amount-header">Card amount</h4>
-      <CardCounter cardsCount={cardsCount} onClick={setCardsCount} />
-
       <h4 className="search-header">Category</h4>
       <div className="search-field">
         <input
@@ -53,10 +38,21 @@ const Settings = ({ startGame }) => {
         />
       </div>
 
-      {/* <div className="username-field">
-        <label htmlFor="username">Username </label>
-        <input type="username" id="username" name="username" />
-      </div> */}
+      <h4 className="amount-header">Card amount</h4>
+      <CardCounter cardsCount={cardsCount} onClick={setCardsCount} />
+
+      <h4 className="difficulty-header">Difficulty:</h4>
+      <div className="radiobox">
+        {DIFFICULTY.map((item) => (
+          <Radiobox
+            key={item}
+            name={item}
+            selectedItem={difficulty}
+            onChange={(e) => setDifficulty(e.target.value)}
+          />
+        ))}
+      </div>
+
       <div className="game-starter">
         <button className="start-button" onClick={startGameButton}>
           Start

@@ -35,7 +35,7 @@ const useBoardLogic = (images, difficulty) => {
   useEffect(() => {
     if (images.length > 0) {
       prepareCards();
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
   const onClickedCard = (clickedUniqueId) => {
@@ -81,7 +81,7 @@ const useBoardLogic = (images, difficulty) => {
   useEffect(() => {
     if (visibleCards.length >= 2) {
       checkIfMatch();
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visibleCards]);
 
   return { cards, onClickedCard };

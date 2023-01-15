@@ -1,4 +1,4 @@
-import styles from "./Cardcounter.css";
+import "./Cardcounter.css";
 
 const CHANGE = 2;
 const CardCounter = ({ cardsCount, onClick }) => {

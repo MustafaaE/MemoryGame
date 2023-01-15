@@ -4,7 +4,7 @@ import useFetchImages from "../../hooks/useFetchImages";
 import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
 
-import styles from "./Playfield.css";
+import "./Playfield.css";
 
 const PlayField = ({ gameOptions }) => {
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,6 @@ const PlayField = ({ gameOptions }) => {
     images,
     gameOptions.difficulty
   );
-  //   console.log(cards);
 
   useEffect(() => {
     if (images.length > 0) setLoading(false);
