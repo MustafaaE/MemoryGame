@@ -8,7 +8,7 @@ When you run the application you will be prompted by a settings page where you c
 
 The `category` option changes what type of images are fetched, there is already a default value for the input but one is able to change it if it's desired. Making complicated or explicit searches will result in `no images` returned so be mindful that the API doesn't include the same amount of pictures as Google.
 
-The `amount` option is for the mount of cards the game will have, fetching half the amount giving in the input and duplicating them.
+The `amount` option is for the amount of cards the game will have, fetching half the amount given in the input and duplicating them.
 
 The `difficulty` option will change the amount of time the cards are flipped when 2 cards are flipped. The ranges go from 1.5s for the `easy` difficulty to 0.15s for the `hell` difficulty.
 
